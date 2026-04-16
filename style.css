@@ -508,10 +508,8 @@ footer {
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-.footer-socials svg {
-    width: 18px;
-    height: 18px;
-    stroke-width: 2px;
+.footer-socials i {
+    font-size: 18px;
 }
 
     /* Refined Icon Box Styling */
@@ -582,5 +580,36 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+.email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
 
+.email-link i {
+    font-size: 16px;
+    color: var(--muted-color);
+    transition: var(--transition);
+}
 
+.email-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.email-link:hover i {
+    color: var(--bg-color);
+}
