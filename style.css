@@ -56,15 +56,67 @@ section.visible {
     transform: translateY(0);
 }
 
+/* Editorial Layout */
+.grid-split {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.editorial-text h1 {
+    margin-bottom: 40px;
+}
+
+.large-p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    color: var(--text-color);
+}
+
+.muted-p {
+    color: var(--muted-color);
+    font-size: 1rem;
+    max-width: 500px;
+}
+
+.image-wrapper {
+    position: relative;
+    padding: 10px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+}
+
+.image-wrapper img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.image-wrapper:hover img {
+    filter: grayscale(0%);
+}
+
+.image-caption {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--muted-color);
+}
+
 /* Typography */
 h1 {
     font-family: var(--f-display);
-    font-size: 5rem;
-    line-height: 0.9;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    line-height: 0.95;
     font-weight: 400;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 }
-
 h2 {
     font-family: var(--f-display);
     font-size: 3rem;
@@ -384,8 +436,17 @@ nav .container {
 }
 
 .premium-cta p i {
-    color: var(--muted-color);
+    color: transparent;
+    background: linear-gradient(90deg, #111111, #666666, #111111);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
     font-family: var(--f-display);
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
 }
 
 #contact a {

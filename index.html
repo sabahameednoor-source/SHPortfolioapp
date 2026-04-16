@@ -47,19 +47,18 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="icon-box about"><i data-lucide="user"></i></div>
-            <span class="label">Origin</span>
-            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start;">
-                <div>
-                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 2rem;">SEO Content Writer with a focus on <i>AI-Driven</i> Automation.</h2>
-                    <p style="color: var(--muted-color); margin-bottom: 2rem; font-size: 1.1rem;">With a deep understanding of platform algorithms and generative AI, I bridge the gap between human creativity and robotic precision. My mission is to empower creators by automating the mundane, allowing them to focus on true innovation.</p>
-                    <p style="color: var(--muted-color); font-size: 1.1rem;">Specializing in Facebook, LinkedIn, and YouTube automation, I build systems that grow while you sleep.</p>
-                </div>
-                <div style="border: 1px solid var(--border-color); padding: 10px; background-color: var(--card-bg);">
-                    <img src="saba.png" alt="Saba Hameed" ...> style="width: 100%; height: auto; border-radius: 4px; display: block;" referrerPolicy="no-referrer">
-                    <p style="font-size: 11px; color: var(--muted-color); margin-top: 12px; font-family: var(--f-mono); text-transform: uppercase; letter-spacing: 1px; text-align: center;">Visionary: Saba Hameed</p>
+    <section id="about" class="editorial-section">
+        <div class="container grid-split">
+            <div class="editorial-text">
+                <span class="label">Perspective</span>
+                <h1>Crafting <i>Order</i> out of Complexity.</h1>
+                <p class="large-p">With a deep understanding of platform algorithms and generative AI, I bridge the gap between human creativity and robotic precision.</p>
+                <p class="muted-p">Specializing in Facebook, LinkedIn, and YouTube automation, I build systems that grow while you sleep.</p>
+            </div>
+            <div class="editorial-image">
+                <div class="image-wrapper">
+                    <img src="saba.png" alt="Saba Hameed" referrerPolicy="no-referrer">
+                    <div class="image-caption">Visionary: Saba Hameed</div>
                 </div>
             </div>
         </div>
@@ -176,6 +175,24 @@
     <!-- Custom Script -->
     <script src="script.js"></script>
     <script>
+        // Intersection Observer for Section Reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
         // Initialize Lucide icons
         lucide.createIcons();
     </script>
