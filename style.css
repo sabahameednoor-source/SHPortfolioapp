@@ -265,6 +265,62 @@ footer {
     color: var(--muted-color);
 }
 
+    /* Refined Icon Box Styling */
+    .icon-box {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%; /* Circular */
+        margin-bottom: 32px;
+        background: white;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .icon-box::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+        transition: var(--transition);
+    }
+
+    .icon-box.about { color: #3b82f6; }
+    .icon-box.about::before { background-color: #3b82f6; }
+
+    .icon-box.projects { color: #10b981; }
+    .icon-box.projects::before { background-color: #10b981; }
+
+    .icon-box.initiatives { color: #f59e0b; }
+    .icon-box.initiatives::before { background-color: #f59e0b; }
+
+    .icon-box.skills { color: #8b5cf6; }
+    .icon-box.skills::before { background-color: #8b5cf6; }
+
+    .icon-box.contact { color: #ef4444; }
+    .icon-box.contact::before { background-color: #ef4444; }
+
+    .icon-box:hover {
+        transform: translateY(-5px);
+        border-color: currentColor;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .icon-box:hover::before {
+        opacity: 0.1;
+    }
+
+    .icon-box i, .icon-box svg {
+        width: 32px;
+        height: 32px;
+        stroke-width: 1.5px;
+    }
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {
