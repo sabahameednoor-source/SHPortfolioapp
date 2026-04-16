@@ -137,6 +137,17 @@ nav .container {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.nav-links a i {
+    width: 0;
+    height: 12px;
+    opacity: 0;
+    transition: var(--transition);
+    display: inline-block;
 }
 
 .nav-links a::after {
@@ -152,6 +163,12 @@ nav .container {
 
 .nav-links a:hover {
     color: var(--text-color);
+    gap: 8px;
+}
+
+.nav-links a:hover i {
+    width: 12px;
+    opacity: 1;
 }
 
 .nav-links a:hover::after, .nav-links a.active::after {
@@ -253,23 +270,81 @@ nav .container {
     line-height: 1.5;
 }
 
-/* Skills Section */
-.skills-list {
-    margin-top: 40px;
-    max-width: 600px;
+/* Mastery Section - Card Based */
+.mastery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 60px;
 }
 
-.skill-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 13px;
+.mastery-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 48px 40px;
+    border-radius: 4px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
 }
 
-.skill-item span:last-child {
+.mastery-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-color);
+    transform: translateY(102%);
+    transition: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+}
+
+.mastery-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    border-color: var(--text-color);
+}
+
+.mastery-card:hover::before {
+    transform: translateY(0);
+}
+
+.mastery-card * {
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.mastery-card:hover * {
+    color: var(--bg-color) !important;
+}
+
+.mastery-icon {
+    margin-bottom: 32px;
+    color: var(--text-color);
+}
+
+.mastery-icon i {
+    width: 40px;
+    height: 40px;
+    stroke-width: 1.2px;
+}
+
+.mastery-card h3 {
+    font-family: var(--f-display);
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.mastery-card p {
+    font-size: 14px;
     color: var(--muted-color);
-    font-style: italic;
+    line-height: 1.7;
+    opacity: 0.8;
 }
 
 /* Contact Section */
@@ -340,23 +415,36 @@ footer {
 }
 
 .footer-socials a {
-    color: #FFFFFF; /* Pure White Icon */
-    background-color: #000000; /* Pure Black Box */
+    color: #FFFFFF;
+    background-color: #000000;
     width: 44px;
     height: 44px;
-    border-radius: 2px; /* Sharper, more architectural corners */
+    border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle inner edge for premium feel */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-socials a.social-wa:hover {
+    background-color: #25D366; /* WhatsApp Green */
+    border-color: #25D366;
+}
+
+.footer-socials a.social-fb:hover {
+    background-color: #1877F2; /* Facebook Blue */
+    border-color: #1877F2;
+}
+
+.footer-socials a.social-li:hover {
+    background-color: #0077B5; /* LinkedIn Blue */
+    border-color: #0077B5;
 }
 
 .footer-socials a:hover {
-    background-color: #222222; /* Slight lift in value */
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-8px) rotate(5deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .footer-socials svg {
